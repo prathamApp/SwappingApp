@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.pratham.admin">
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name="com.pratham.admin.ApplicationController"
+        android:allowBackup="false"
+        android:fullBackupOnly="false"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.pratham.admin.activities.MainActivity"
+            android:screenOrientation="sensorLandscape"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pratham.admin.activities.Activity_QRScan"
+            android:label="@string/selectProgram"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name="com.pratham.admin.activities.SelectProgram"
+            android:label="@string/selectProgram"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name="com.pratham.admin.activities.SwapStudentsActivity"
+            android:screenOrientation="sensorLandscape"/>
+
+        <receiver
+            android:name="com.pratham.admin.util.ConnectionReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>
